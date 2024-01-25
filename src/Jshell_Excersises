@@ -1,0 +1,118 @@
+1) Square Every number in the list & find Sum of the squares :
+
+        jshell> List<Integer> numbers = List.of(12,21,34,52,14,51,1,78)
+        numbers ==> [12, 21, 34, 52, 14, 51, 1, 78]
+
+        jshell> numbers.stream().map(number->number*number).reduce(0, Integer::sum)
+        $4 ==> 13327
+
+
+ 2) Cube Every number in the list & find Sum of the cubes :
+
+        jshell> numbers.stream().map(number->number*number*number).reduce(0, Integer::sum)
+        $3 ==> 800849
+
+
+ 3) Find Sum of Odd number from the list
+
+        jshell> numbers.stream().filter(number->number % 2 != 0).reduce(0, Integer::sum)
+        $5 ==> 73
+
+4) Sort List of courses.
+
+        List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF", "Azure", "Docker", "Kubernetes")
+
+        jshell> courses.stream().sorted().forEach(System.out::println)
+        API
+        AWS
+        Azure
+        Docker
+        Kubernetes
+        Microservices
+        PCF
+        Spring
+        Spring Boot
+
+       4.1) List in reverse order
+
+       jshell> courses.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println)
+       Spring Boot
+       Spring
+       PCF
+       Microservices
+       Kubernetes
+       Docker
+       Azure
+       AWS
+       API
+
+
+
+       jshell> courses.stream().sorted(Comparator.naturalOrder()).forEach(System.out::println)
+       API
+       AWS
+       Azure
+       Docker
+       Kubernetes
+       Microservices
+       PCF
+       Spring
+       Spring Boot
+
+
+       4.2)  Sort based on length of the String
+
+
+                jshell> courses.stream().sorted(Comparator.comparing(course->course.length())).forEach(System.out::println)
+                API
+                AWS
+                PCF
+                Azure
+                Spring
+                Docker
+                Kubernetes
+                Spring Boot
+                Microservices
+
+       4.3) sort based on length in reverse
+
+
+               jshell> courses.stream().sorted(Comparator.comparing(course->course.length()))
+                                        .sorted(Comparator.reverseOrder())
+                                        .forEach(System.out::println)
+               Spring Boot
+               Spring
+               PCF
+               Microservices
+               Kubernetes
+               Docker
+               Azure
+               AWS
+               API
+
+
+5) Create a list of even numbers filtered from e number list
+
+        jshell> List<Integer> numbers = List.of(22, 24, 23, 21, 12, 16, 14, 15, 19, 18, 22, 54, 51, 56, 64, 65)
+        numbers ==> [22, 24, 23, 21, 12, 16, 14, 15, 19, 18, 22, 54, 51, 56, 64, 65]
+
+        jshell> numbers.stream().filter(number->number % 2 == 0).collect(Collectors.toList())
+        $16 ==> [22, 24, 12, 16, 14, 18, 22, 54, 56, 64]
+
+
+
+
+6) Create a list with length of each course titles.
+
+          jshell> courses
+          courses ==> [Spring, Spring Boot, API, Microservices, AWS, PCF, Azure, Docker, Kubernetes]
+
+          jshell> courses.stream().map(course->course.length()).collect(Collectors.toList())
+          $18 ==> [6, 11, 3, 13, 3, 3, 5, 6, 10]
+
+          jshell>
+
+
+
+
+

@@ -5,8 +5,7 @@ public class FP01Functional {
     public static void main(String[] args) {
 
         List<Integer> numbers = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
-        List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices",
-        "AWS", "PCF", "Azure", "Docker", "Kubernetes");
+        List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF", "Azure", "Docker", "Kubernetes");
         printAllNumbersInListFunctional(numbers);
         printOnlyOddNumbersInListFunctional(numbers);
         printAlltheCourses(courses);
